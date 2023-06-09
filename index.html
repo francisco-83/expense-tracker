@@ -8,46 +8,49 @@
 </head>
 <body>
  
-                
- <h1>Simple <br> Expense Tracker</h1>
-                
- <p id="balance"></p>  <p id="totalExpense"></p> 
-                                     
-                   
-<div id="dateDiv" class="input"> Date: <input type="date" id="date">
-</div>
-                    
-                    
- <label for="category">Category:</label>
- <select name="categories" id="categories">
-    <option value="income">Income</option>
-    <option value="expense">Expense</option>
-</select>
+<div class='some-page-wrapper'>
+    <div class="row">
 
-                    
-                    
+        <div class="left-row">
+            <h1>Simple <br> Expense Tracker</h1>
+            <p id="balance"></p>  <p id="totalExpense"></p> 
+        </div>
+        
+        <div class="col">
+            <div id="dateDiv" class="input"> Date: <input type="date" id="date">
+            </div>
+                                    
+            <label for="category">Category:</label>
+            <select name="categories" id="categories">
+                <option value="income">Income</option>
+                <option value="expense">Expense</option>
+            </select>
 
-<div id="descriptionDiv" class="input"> Description: <input type="text" id="description">
-</div>
-                  
-
-<div id="amountDiv" class="input"> Amount: <input type="number" id="amount">
-</div>
-                   
-<button id="addButton">Add</button>
-                    
+            <div id="descriptionDiv" class="input"> Description: <input type="text" id="description">
+            </div>
+                              
             
-<table  id="display">
-   <tr>
-     <th>Date</th>
-      <th>Category</th>
-      <th>Description</th>
-     <th>Amount</th>    
-       </tr>
-</table>
+            <div id="amountDiv" class="input"> Amount: <input type="number" id="amount">
+            </div>
+                               
+            <button id="addButton">Add</button>
+                                
+                        
+            <table  id="display">
+               <tr>
+                 <th>Date</th>
+                  <th>Category</th>
+                  <th>Description</th>
+                 <th>Amount</th>    
+                </tr>
+            </table>
+        </div>                                 
+    </div><!-- end row-->
+  
       
-
-    <script src="main.js"></script>
+</div><!-- end of page wrapper-->          
+ 
+<script src="main.js"></script>
 
   </body>
 </html>

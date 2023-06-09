@@ -1,5 +1,3 @@
-//to-do
-
 var addButton = document.getElementById("addButton");
 addButton.addEventListener("click", handleButton);
 var balance = 0;
@@ -39,9 +37,14 @@ function handleButton(){
     } else {
         handleExpense(amount);    
     }   
+
+      // grab tr elements after created handle the event
+      var rows = document.getElementsByTagName("tr");
+      for (var i = 0; i < rows.length; i++) {
+         rows[i].onclick = deleteMyRow;
+      }
     
 }
-
 
 function handleIncome(amount) {
     balance = balance + amount;
@@ -54,3 +57,14 @@ function handleExpense(amount) {
     var currentIncome = document.getElementById("balance");
     currentIncome.innerHTML = balance;
 }
+
+          
+function deleteMyRow(eventObj) {
+    var row = eventObj.target;
+    document.getElementById("display").deleteRow(row);
+
+}
+
+
+//var item = eventObj.target;
+  //  item.setAttribute("class", "crossed");
