@@ -1,6 +1,3 @@
-//https://www.w3schools.com/jsref/met_table_deleterow.asp
-
-
 var addButton = document.getElementById("addButton");
 addButton.addEventListener("click", handleButton);
 var balance = 0;
@@ -32,7 +29,7 @@ function handleButton(){
     cell1.innerHTML = date;
     cell2.innerHTML = category;
     cell3.innerHTML = description;
-    cell4.innerHTML = "$" + amount;
+    cell4.innerHTML = "$" +  amount;
     cell5.innerHTML = '<input type="button" value="Delete" onclick="deleteMyRow(this)"></input>'
 
     row++;
@@ -65,9 +62,21 @@ function handleExpense(amount) {
 
           
 function deleteMyRow(eventObj) {
-
+      
     var i = eventObj.parentNode.parentNode.rowIndex;
+    
+
+    //let cell = document.getElementById("display").rows[i];
+    //cellVal = cell[3];
+  
+    //balance = balance - cellVal;
+
+    var currentIncome = document.getElementById("balance");
+    currentIncome.innerHTML = balance;
+
     document.getElementById("display").deleteRow(i);
+ 
+    
     //var delrow = eventObj.target;
     //document.getElementById("display").deleteRow(1);
 
