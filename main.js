@@ -1,3 +1,5 @@
+//https://wwww.w3schools.com/jsref/met_table_deleterow.asp
+
 var addButton = document.getElementById("addButton");
 addButton.addEventListener("click", handleButton);
 var balance = 0;
@@ -6,7 +8,7 @@ var totalIncome = 0;
 
 function handleButton(){
        
-    var row = 1;
+    var row = 1; // row header and keeps track of rowIndex
     var date = document.getElementById("date").value;
     var category = document.getElementById("categories").value;
     var description = document.getElementById("description").value;
@@ -17,35 +19,42 @@ function handleButton(){
         return;
     }
 
+    // grab the display(table) and add a new row
     var display = document.getElementById("display");
     var newRow = display.insertRow(row);
 
+    // Cells for each neRow
     var cell1 = newRow.insertCell(0);
     var cell2 = newRow.insertCell(1);
     var cell3 = newRow.insertCell(2);
     var cell4 = newRow.insertCell(3);
-    var cell5 = newRow.insertCell(4);
- 
+    var delCell = newRow.insertCell(4);
+
+    // Delete Button
+    var delBtn = document.createElement("button");
+    delBtn.innerHTML = "Delete";
+    delCell.appendChild(delBtn);
+
+    // Info for every cell
     cell1.innerHTML = date;
     cell2.innerHTML = category;
     cell3.innerHTML = description;
     cell4.innerHTML = "$" +  amount;
-    cell5.innerHTML = '<input type="button" value="Delete" onclick="deleteMyRow(this)"></input>'
-
+    
+    delBtn.addEventListener("click", function() {
+        var currentIncome = document.getElementById("balance");
+        balance = balance - amount;
+        currentIncome.innerHTML = balance;
+        deleteMyRow(this);
+    });
+    
     row++;
     
     if(category == "income") {
         handleIncome(amount);
     } else {
         handleExpense(amount);    
-    }   
-
-      // grab tr elements after created handle the event
-      //var therows = document.getElementsByTagName("tr");
-      //for (var i = 0; i < therows.length; i++) {
-      //   therows[i].onclick = deleteMyRow;
-      //}
-    
+    }       
 }
 
 function handleIncome(amount) {
@@ -61,27 +70,8 @@ function handleExpense(amount) {
 }
 
           
-function deleteMyRow(eventObj) {
-      
+function deleteMyRow(eventObj) {   
     var i = eventObj.parentNode.parentNode.rowIndex;
-    
-
-    //let cell = document.getElementById("display").rows[i];
-    //cellVal = cell[3];
-  
-    //balance = balance - cellVal;
-
-    var currentIncome = document.getElementById("balance");
-    currentIncome.innerHTML = balance;
-
     document.getElementById("display").deleteRow(i);
- 
-    
-    //var delrow = eventObj.target;
-    //document.getElementById("display").deleteRow(1);
 
 }
-
-
-//var item = eventObj.target;
-  //  item.setAttribute("class", "crossed");
